@@ -16,9 +16,12 @@ use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 */
 
 Route::get('/', function () {
-    return view('admin.login');
+    return view('landing.home');
 });
 
+Route::get('/admin', function () {
+    return view('admin.login');
+});
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
