@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            {{-- <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+            <!-- {{-- <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
                 <div class="fh5co-footer-widget">
                     <h3>Support</h3>
                     <ul class="fh5co-links">
@@ -25,7 +25,7 @@
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
-            </div> --}}
+            </div> --}} -->
 
             <div class="col-md-4 col-sm-6 col-xs-12 animate-box">
                 <div class="fh5co-footer-widget">

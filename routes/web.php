@@ -19,13 +19,30 @@ Route::get('/', function () {
     return view('landing.home');
 });
 
+Route::get('/wisata', function () {
+    return view('landing.wisata');
+});
+Route::get('/detail-wisata', function () {
+    return view('landing.detail_wisata');
+});
+Route::get('/blog', function () {
+    return view('landing.blog');
+});
+Route::get('/detail-blog', function () {
+    return view('landing.detail_blog');
+});
+Route::get('/sewa-mobil', function () {
+    return view('landing.sewa');
+});
+Route::get('/galeri', function () {
+    return view('landing.galeri');
+});
 Route::get('/admin', function () {
     return view('admin.login');
 });
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
-
 Route::get('/sewa', function () {
     return view('admin.sewa');
 });
