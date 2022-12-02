@@ -18,6 +18,9 @@ use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 Route::get('/', function () {
     return view('landing.home');
 })->name('home');
+Route::get('/profil', function () {
+    return view('landing.profile');
+})->name('profil');
 
 Route::get('/wisata', function () {
     return view('landing.wisata');

@@ -1,7 +1,7 @@
 @include('layouts_landing.head')
 @include('layouts_landing.navbar')
 
-<section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(images/full_image_2.jpg);" data-next="yes">
+<section id="fh5co-hero" class="no-js-fullheight" style="background-image: url('{{ asset('assets_l/images/full_image_2.jpg') }}')" data-next="yes">
 			<div class="fh5co-overlay"></div>
 			<div class="container">
 				<div class="fh5co-intro no-js-fullheight">

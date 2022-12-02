@@ -16,7 +16,7 @@
                 <nav role="navigation">
                     <ul class="pull-left left-menu">
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="tour.html">Profil</a></li>
+                        <li><a href="{{ route('profil') }}">Profil</a></li>
                         <li><a href="{{ route('wisata') }}">Paket Wisata</a></li>
                     </ul>
                     {{-- <h1 id="fh5co-logo"><a href="index.html">lensa pesona lombok<span>.</span></a></h1> --}}
