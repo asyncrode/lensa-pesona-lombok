@@ -45,7 +45,7 @@
         <div class="row">
 
             <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
+                <a href="{{ route('d-wisata') }}" class="fh5co-project-item">
                     <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
                     <div class="fh5co-text">
                         <h2>Paket Tour Lombok 3 Hari 2 Malam (Type A)</h2>
@@ -203,7 +203,7 @@
     </div>
 
     <div class="animate-box" style="text-align: center;">
-        <button class="btn">Lihat lebih Lanjut</button>
+        <button class="btn" href="{{ route('galeri') }}">Lihat lebih banyak</button>
     </div>
 </section>
 
@@ -229,7 +229,7 @@
             </div>
             <div class="btn-pull-right">
                 <div class="btn btn-info animate-box">
-                    <a href="#" style="color: #fff;">Read More</a>
+                    <a href="{{ route('d-blog') }}" style="color: #fff;">Read More</a>
                 </div>
             </div>
 

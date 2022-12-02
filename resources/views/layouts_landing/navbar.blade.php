@@ -15,19 +15,19 @@
             <div class="container">
                 <nav role="navigation">
                     <ul class="pull-left left-menu">
-                        <li><a href="about.html">Home</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="tour.html">Profil</a></li>
-                        <li><a href="pricing.html">Paket Wisata</a></li>
+                        <li><a href="{{ route('wisata') }}">Paket Wisata</a></li>
                     </ul>
                     {{-- <h1 id="fh5co-logo"><a href="index.html">lensa pesona lombok<span>.</span></a></h1> --}}
                     {{-- <h1 id="fh5co-logo"><a href="index.html"><img src="{{ asset('assets_l/images/logo_lpl_3.png') }}"
                                 style="height: 50px" alt="">lensapesonalombok<span>.id</span></a></h1> --}}
-                    <h1 id="fh5co-logo"><a href="index.html"><img src="{{ asset('assets_l/images/Logo.png') }}"
+                    <h1 id="fh5co-logo"><a href="{{ route('home') }}"><img src="{{ asset('assets_l/images/Logo.png') }}"
                                 style="height: min(10vw, 65px);" alt=""></a></h1>
                     <ul class="pull-right right-menu">
-                        <li><a href="pricing.html">Sewa Mobil</a></li>
-                        <li><a href="tour.html">Gallery</a></li>
-                        <li><a href="pricing.html">Blog</a></li>
+                        <li><a href="{{ route('sewa') }}">Sewa Mobil</a></li>
+                        <li><a href="{{ route('galeri') }}">Gallery</a></li>
+                        <li><a href="{{ route('blog') }}">Blog</a></li>
                     </ul>
                 </nav>
             </div>

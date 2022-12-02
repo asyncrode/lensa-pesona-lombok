@@ -143,5 +143,6 @@
     <!--[if lt IE 9]>
  <script src="js/respond.min.js"></script>
  <![endif]-->
+    <script src="https://kit.fontawesome.com/00f767ef76.js" crossorigin="anonymous"></script>
 
 </head>

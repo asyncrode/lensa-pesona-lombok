@@ -17,26 +17,26 @@ use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 
 Route::get('/', function () {
     return view('landing.home');
-});
+})->name('home');
 
 Route::get('/wisata', function () {
     return view('landing.wisata');
-});
+})->name('wisata');
 Route::get('/detail-wisata', function () {
     return view('landing.detail_wisata');
-});
+})->name('d-wisata');
 Route::get('/blog', function () {
     return view('landing.blog');
-});
+})->name('blog');
 Route::get('/detail-blog', function () {
     return view('landing.detail_blog');
-});
+})->name('d-blog');
 Route::get('/sewa-mobil', function () {
     return view('landing.sewa');
-});
+})->name('sewa');
 Route::get('/galeri', function () {
     return view('landing.galeri');
-});
+})->name('galeri');
 Route::get('/admin', function () {
     return view('admin.login');
 });
