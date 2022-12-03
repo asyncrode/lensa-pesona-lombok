@@ -1,18 +1,13 @@
 @include('layouts_landing.head')
 @include('layouts_landing.navbar')
 
-<section id="fh5co-hero" class="js-fullheight"
+<!-- <section id="fh5co-hero" class="js-fullheight"
     style="background-image: url('{{ asset('assets_l/images/senggigi2.jpg') }}')" data-next="yes">
     <div class="fh5co-overlay"></div>
     <div class="container">
         <div class="fh5co-intro js-fullheight">
             <div class="fh5co-intro-text">
-                <!--
-                    INFO:
-                    Change the class to 'fh5co-right-position' or 'fh5co-center-position' to change the layout position
-                    Example:
-                    <div class="fh5co-right-position">
-                -->
+
                 <div class="fh5co-left-position">
                     <h2 class="animate-box">Lensa Pesona Lombok</h2>
                     <h3 class="animate-box">Rencanakan Liburan, Tour, Honeymoon, Gathering Terbaik Anda di Lombok
@@ -30,6 +25,56 @@
             <span class="arrow"><i class="icon-chevron-down"></i></span>
         </a>
     </div>
+</section> -->
+<section>
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+  <!-- Overlay -->
+  
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#bs-carousel" data-slide-to="1"></li>
+    <li data-target="#bs-carousel" data-slide-to="2"></li>
+  </ol>
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item slides active">
+      <div class="slide-1"></div>
+      <div class="hero">
+        <hgroup>
+            <h2>Lensa Pesona Lombok</h2>        
+            <h3>Rencanakan Liburan, Tour, Honeymoon, Gathering Terbaik Anda di Lombok
+                        bersama lensapesonalombok.id!</h3>
+        </hgroup>
+        <button class="btn btn-hero btn-lg" role="button">See all features</button>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-2"></div>
+      <div class="hero">        
+        <hgroup>
+            <h2>Lensa Pesona Lombok</h2>        
+            <h3>Rencanakan Liburan, Tour, Honeymoon, Gathering Terbaik Anda di Lombok
+                        bersama lensapesonalombok.id!</h3>
+        </hgroup>       
+        <button class="btn btn-hero btn-lg" role="button">See all features</button>
+      </div>
+    </div>
+    <div class="item slides">
+      <div class="slide-3"></div>
+      <div class="hero">        
+        <hgroup>
+        <h2>Lensa Pesona Lombok</h2>        
+            <h3>Rencanakan Liburan, Tour, Honeymoon, Gathering Terbaik Anda di Lombok
+                        bersama lensapesonalombok.id!</h3>
+        </hgroup>
+        <button class="btn btn-hero btn-lg" role="button">See all features</button>
+      </div>
+    </div>
+  </div> 
+</div>
 </section>
 <!-- END #fh5co-hero -->
 <!--Start Paket Wisata-->
