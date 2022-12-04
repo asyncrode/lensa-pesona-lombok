@@ -40,12 +40,10 @@ Route::get('/sewa-mobil', function () {
 Route::get('/galeri', function () {
     return view('landing.galeri');
 })->name('galeri');
-Route::get('/admin', function () {
-    return view('admin.login');
-});
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+// Route::get('/admin', function () {
+//     return view('admin.login');
+// });
+
 Route::get('/sewa', function () {
     return view('admin.sewa');
 });
