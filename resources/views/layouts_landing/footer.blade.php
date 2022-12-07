@@ -42,7 +42,7 @@
                 <div class="fh5co-footer-widget">
                     <h3>Follow Us</h3>
                     <ul class="fh5co-social">
-                        <li><a href="https://www.facebook.com/people/Lensa-Pesona-Lombok/" target="_blank"><i
+                        <li><a href="https://www.facebook.com/profile.php?id=100076629572014" target="_blank"><i
                                     class="icon-facebook"></i></a></li>
                         <li><a href="https://www.instagram.com/lensapesonalombok/" target="_blank"><i
                                     class="icon-instagram"></i></a>

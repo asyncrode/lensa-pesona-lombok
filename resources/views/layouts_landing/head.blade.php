@@ -43,10 +43,11 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
 
+    <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet'
         type='text/css'>
-
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="{{ asset('assets_l/css/animate.css') }}">
@@ -129,9 +130,9 @@
             /* font-size: 22px; */
         }
 
-        .pattern1 {
-            background-image: repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25) 1px, transparent 1px, transparent 6px);
-            background-size: 8px 8px;
+        .pop {
+            font-family: 'Poppins';
+            /* font-size: 22px; */
         }
     </style>
     <!-- End demo purposes only -->
