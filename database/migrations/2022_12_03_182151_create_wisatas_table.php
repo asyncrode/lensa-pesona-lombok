@@ -17,8 +17,8 @@ class CreateWisatasTable extends Migration
             $table->id();
             $table->string('nama');
             $table->integer('harga');
-            $table->string('paket');
             $table->string('tujuan');
+            $table->string('foto');
             $table->longText('deskripsi');
             $table->timestamps();
         });
