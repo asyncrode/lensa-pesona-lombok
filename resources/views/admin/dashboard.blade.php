@@ -1,12 +1,5 @@
-@include('layouts_admin.header')
-
-@include('layouts_admin.sidebar')
-
-@include('layouts_admin.navbar')
-
-<!-- Main Container -->
-<main id="main-container">
-
+@extends('layouts_admin.master')
+@section('content')
     <!-- Page Content -->
     <div class="content">
         <!-- Header -->
@@ -666,9 +659,4 @@
         </div>
     </div>
     <!-- END Page Content -->
-
-</main>
-<!-- END Main Container -->
-
-@include('layouts_admin.footer')
-@include('layouts_admin.script')
+@endsection
