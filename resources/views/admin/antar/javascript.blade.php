@@ -3,12 +3,12 @@
         var idEdit = 0;
 
         // Show Data
-        var table = $('.tableWisata').DataTable({
+        var table = $('.tableAntar').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('wisata.admin.data') }}",
+            ajax: "{{ route('antar.admin.data') }}",
             'columnDefs': [{
-                    "targets": [0, 2, 3, 5, 6], // your case first column
+                    "targets": [0, 3, 4, 5, 6], // your case first column
                     "className": "text-center"
 
                 },
@@ -25,24 +25,24 @@
                     name: 'DT_RowIndex'
                 },
                 {
-                    data: 'nama',
-                    name: 'nama'
+                    data: 'dari',
+                    name: 'dari'
                 },
                 {
-                    data: 'harga',
-                    name: 'harga'
+                    data: 'menuju',
+                    name: 'menuju'
                 },
                 {
-                    data: 'tujuan',
-                    name: 'tujuan'
+                    data: 'avanza',
+                    name: 'avanza'
                 },
                 {
-                    data: 'deskripsi',
-                    name: 'deskripsi'
+                    data: 'innova',
+                    name: 'innova'
                 },
                 {
-                    data: 'created_at',
-                    name: 'created_at'
+                    data: 'updated_at',
+                    name: 'updated_at'
                 },
                 {
                     data: 'action',
@@ -53,12 +53,11 @@
             ]
         });
         // End Show
-        // inisiasi summernote
-        $('#deskripsi').summernote();
+
         // Create Modal
-        $('#addWisata').click(function() {
-            $('#frm_wisata').trigger("reset");
-            $('#modalWisata').modal('show');
+        $('#addAntar').click(function() {
+            $('#frm_antar').trigger("reset");
+            $('#modalAntar').modal('show');
         });
 
         // Store Data
@@ -67,11 +66,11 @@
             var type;
 
             if (idEdit === 0) {
-                url = "{{ route('wisata.admin.store') }}"
+                url = "{{ route('antar.admin.store') }}"
                 type = "POST"
             } else {
 
-                url = '{{ route('wisata.admin.update', ':id') }}';
+                url = '{{ route('antar.admin.update', ':id') }}';
                 url = url.replace(':id', idEdit);
 
 
@@ -83,7 +82,7 @@
                 },
                 type: type,
                 url: url,
-                data: $('#frm_wisata').serialize(),
+                data: $('#frm_antar').serialize(),
                 success: function(response) {
                     Swal.fire({
                         title: 'Berhasil !',
@@ -92,9 +91,9 @@
                         showConfirmButton: true
                     })
                     idEdit = 0;
-                    console.log($('#frm_wisata').serialize())
-                    $('#frm_wisata').trigger("reset");
-                    $('#modalWisata').modal('hide');
+                    console.log($('#frm_antar').serialize())
+                    $('#frm_antar').trigger("reset");
+                    $('#modalAntar').modal('hide');
                     table.draw()
                 }
             })
@@ -105,7 +104,7 @@
         // EDIT DATA
         $('body').on('click', '#edit', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('wisata.admin.edit', ':id') }}'
+            var url = '{{ route('antar.admin.edit', ':id') }}'
             url = url.replace(':id', id)
 
             $.ajax({
@@ -114,12 +113,12 @@
                 success: function(res) {
                     console.log(res)
                     idEdit = res.data.id;
-                    $('#frm_wisata').trigger("reset");
-                    $('#modalWisata').modal('show');
-                    $('#nama').val(res.data.nama);
-                    $('#harga').val(res.data.harga);
-                    $('#tujuan').val(res.data.tujuan);
-                    $('#deskripsi').summernote('code', res.data.deskripsi);
+                    $('#frm_antar').trigger("reset");
+                    $('#modalAntar').modal('show');
+                    $('#dari').val(res.data.dari);
+                    $('#menuju').val(res.data.menuju);
+                    $('#avanza').val(res.data.avanza);
+                    $('#innova').val(res.data.innova);
                     console.log(idEdit)
 
                 }
@@ -130,7 +129,7 @@
         // Delete
         $('body').on('click', '#delete', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('wisata.admin.delete', ':id') }}';
+            var url = '{{ route('antar.admin.delete', ':id') }}';
             url = url.replace(':id', id);
             Swal.fire({
                     title: 'Anda Yakin ?',

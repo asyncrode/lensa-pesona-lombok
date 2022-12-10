@@ -4,14 +4,14 @@
 
     <title>Lensa Pesona Lombok | Dashboard</title>
 
-    <meta name="description" content="Kang Sayur Web Admin | Dashboard">
+    <meta name="description" content="Web Admin | Dashboard">
     <meta name="author" content="pixelcave">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph Meta -->
-    <meta property="og:title" content="Kang Sayur Web Admin | UI Framework">
+    <meta property="og:title" content="Web Admin | Dashboard">
     <meta property="og:site_name" content="Codebase">
-    <meta property="og:description" content="Kang Sayur Web Admin | Dashboard">
+    <meta property="og:description" content="Web Admin | Dashboard">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
@@ -20,7 +20,8 @@
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
     <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
     <link rel="apple-touch-icon" sizes="180x180"
         href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
     <!-- END Icons -->
@@ -33,11 +34,11 @@
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
-    <link rel="stylesheet" id="css-theme" href="{{ asset('assets/css/themes/earth.min.css') }}">
-    <link rel="stylesheet" href="{{asset('assets/js/plugins/datatables/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" id="css-theme" href="{{ asset('assets/css/themes/pulse.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.css') }}">
 
     {{-- Summernote --}}
-    <link rel="stylesheet" href="{{asset('assets/js/plugins/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/summernote/summernote-bs4.css') }}">
     </link>
     <style>
         /* width */
@@ -52,13 +53,13 @@
 
         /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: #A0CA8A;
+            background: #f26964;
             border-radius: 30px;
         }
 
         /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
-            background: #6EAB4D;
+            background: #c1524e;
         }
 
         .btn3d {

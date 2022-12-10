@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Wisata;
+use App\Antar;
 use DataTables;
 
-class WisataController extends Controller
+class AntarController extends Controller
 {
     public function __construct()
     {
@@ -16,21 +16,17 @@ class WisataController extends Controller
 
     public function index()
     {
-        return view('admin.wisata.index');
+        return view('admin.antar.index');
     }
 
-    public function getWisata()
+    public function getAntar()
     {
-        $wisata = Wisata::all();
-        return Datatables::of($wisata)
+        $antar = Antar::all();
+        return Datatables::of($antar)
             ->addIndexColumn()
-            ->addColumn('updated_at', function ($wisata) {
+            ->addColumn('updated_at', function ($antar) {
 
-                return date('d-m-Y h:i', strtotime($wisata->updated_at));
-            })
-            ->addColumn('deskripsi', function ($wisata) {
-
-                return strip_tags($wisata->deskripsi);
+                return date('d-m-Y h:i', strtotime($antar->updated_at));
             })
             ->addColumn('action', function ($row) {
                 $btn = '';
@@ -45,34 +41,34 @@ class WisataController extends Controller
 
     public function store(Request $request)
     {
-        $wisata = new Wisata;
-        $wisata->nama = $request->nama;
-        $wisata->harga = $request->harga;
-        $wisata->tujuan = $request->tujuan;
-        $wisata->deskripsi = $request->deskripsi;
-        $wisata->save();
+        $antar = new Antar;
+        $antar->dari = $request->dari;
+        $antar->menuju = $request->menuju;
+        $antar->avanza = $request->avanza;
+        $antar->innova = $request->innova;
+        $antar->save();
         return response()->json([
-            'message' => 'Paket Berhasil Di Tambah'
+            'message' => 'Data Berhasil Di Tambah'
         ], 200);
     }
 
     public function edit($id)
     {
-        $wisata = Wisata::find($id);
+        $antar = Antar::find($id);
         return response()->json([
             'message' => 'Edit Paket',
-            'data' => $wisata,
+            'data' => $antar,
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->nama = $request->nama;
-        $wisata->harga = $request->harga;
-        $wisata->tujuan = $request->tujuan;
-        $wisata->deskripsi = $request->deskripsi;
-        $wisata->save();
+        $antar = Antar::find($id);
+        $antar->dari = $request->dari;
+        $antar->menuju = $request->menuju;
+        $antar->avanza = $request->avanza;
+        $antar->innova = $request->innova;
+        $antar->save();
         return response()->json([
             'message' => 'Data Berhasil Di Update'
         ], 200);
@@ -80,10 +76,10 @@ class WisataController extends Controller
 
     public function delete($id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->delete();
+        $antar = Antar::find($id);
+        $antar->delete();
         return response()->json([
-            'message' => 'Paket Deleted',
+            'message' => 'Data Deleted',
         ], 200);
     }
 }

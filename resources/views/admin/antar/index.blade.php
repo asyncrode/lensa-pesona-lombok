@@ -3,24 +3,23 @@
     <div class="content">
         <div class="block">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Daftar Paket Wisata</h3>
+                <h3 class="block-title">Daftar Paket Antar Jemput</h3>
             </div>
             <div class="block-content block-content-full">
                 <!-- DataTables functionality is initialized with .js-dataTable-full-pagination class in js/pages/be_tables_datatables.min.js which was auto compiled from _es6/pages/be_tables_datatables.js -->
-                <button type="button" id="addWisata" data-toggle="modal" data-target="#modalWisata"
+                <button type="button" id="addAntar" data-toggle="modal" data-target="#modalAntar"
                     class="btn btn-outline-primary mb-4"><i class="fa fa-plus"></i> Tambah Paket</button>
                 <div class="table-responsive">
-                    <table
-                        class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination tableWisata">
+                    <table class="table table-bordered table-striped table-vcenter js-dataTable-full-pagination tableAntar">
                         <thead>
                             <tr>
                                 <th class="d-none d-sm-table-cell text-center" style="width: 5%;">no</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 30%;">nama paket</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">harga</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 20%;">tujuan</th>
-                                <th class="d-none d-sm-table-cell text-center">deksripsi</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 25%;">dari</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 25%;">menuju</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 15%;">Tarif (Avanza)</th>
+                                <th class="d-none d-sm-table-cell text-center" style="width: 15%;">Tarif (Innova)</th>
                                 <th class="d-none d-sm-table-cell text-center">Tanggal</th>
-                                <th class="d-none d-sm-table-cell text-center" style="width: 10%;">action</th>
+                                <th class="d-none d-sm-table-cell text-center">action</th>
                             </tr>
                         </thead>
                     </table>
@@ -29,13 +28,13 @@
         </div>
     </div>
 
-    {{-- Modal Add Wisata --}}
-    <div class="modal fade" id="modalWisata" tabindex="-1" role="dialog" aria-labelledby="modalWisata" aria-hidden="true">
+    {{-- Modal Add Antar --}}
+    <div class="modal fade" id="modalAntar" tabindex="-1" role="dialog" aria-labelledby="modalAntar" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="block block-themed block-transparent mb-0">
                     <div class="block-header bg-primary-dark">
-                        <h3 class="block-title">Paket Wisata</h3>
+                        <h3 class="block-title">Paket Antar Kendaraan</h3>
                         <div class="block-options">
                             <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                                 <i class="si si-close"></i>
@@ -43,28 +42,29 @@
                         </div>
                     </div>
                     <div class="block-content">
-                        <form action="" name="frm_wisata" id="frm_wisata" method="post">
+                        <form action="" name="frm_antar" id="frm_antar" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="nama">Nama Paket</label>
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    placeholder="Paket A">
+                                <label for="dari">Dari</label>
+                                <input type="text" class="form-control" id="dari" name="dari"
+                                    placeholder="Lombok International Airport">
                             </div>
                             <div class="form-group">
-                                <label for="harga">Harga Paket</label>
-                                <input type="text" class="form-control input-currency" type-currency="IDR" id="harga"
-                                    name="harga" placeholder="Rp">
+                                <label for="menuju">Menuju</label>
+                                <input type="text" class="form-control" id="menuju" name="menuju"
+                                    placeholder="Mataram, Cakra, dan Sweta">
                             </div>
                             <div class="form-group">
-                                <label for="tujuan">Tujuan</label>
-                                <input type="text" class="form-control" id="tujuan" name="tujuan"
-                                    placeholder="Gili Trawangan, Air, & Meno">
+                                <label for="avanza">Tarif (Avanza)</label>
+                                <input type="text" class="form-control input-currency" type-currency="IDR" id="avanza"
+                                    name="avanza" placeholder="Rp">
                             </div>
                             <div class="form-group">
-                                <label for="">Description</label>
-                                <textarea name="deskripsi" id="deskripsi" class="form-control" cols="30" rows="10"
-                                    placeholder="Deskripsi Paket"></textarea>
+                                <label for="innova">Tarif (Innova)</label>
+                                <input type="text" class="form-control input-currency" type-currency="IDR" id="innova"
+                                    name="innova" placeholder="Rp">
                             </div>
+
                         </form>
                     </div>
                 </div>
@@ -79,5 +79,5 @@
     </div>
 @endsection
 @push('scripts')
-    @include('admin.wisata.javascript')
+    @include('admin.antar.javascript')
 @endpush
