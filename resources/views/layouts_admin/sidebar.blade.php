@@ -112,7 +112,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('foto.admin.index') }}">
                         <i class="si si-picture"></i>
                         <span class="sidebar-mini-hide">Post Foto</span>
                     </a>

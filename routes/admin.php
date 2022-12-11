@@ -43,4 +43,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/update/{id}', 'Admin\AntarController@update')->name('antar.admin.update');
         Route::delete('/delete/{id}', 'Admin\AntarController@delete')->name('antar.admin.delete');
     });
+    Route::group(['prefix' => 'foto'], function () {
+        Route::get('/', 'Admin\FotoController@index')->name('foto.admin.index');
+        Route::post('/store', 'Admin\FotoController@store')->name('foto.admin.store');
+        Route::get('/getFoto', 'Admin\FotoController@getFoto')->name('foto.admin.data');
+        Route::get('/edit/{id}', 'Admin\FotoController@edit')->name('foto.admin.edit');
+        Route::put('/update/{id}', 'Admin\FotoController@update')->name('foto.admin.update');
+        Route::delete('/delete/{id}', 'Admin\FotoController@delete')->name('foto.admin.delete');
+    });
 });
