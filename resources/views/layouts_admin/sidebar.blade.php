@@ -101,6 +101,9 @@
                             <a href="{{ route('wisata.admin.index') }}">Paket Wisata</a>
                         </li>
                         <li>
+                            <a href="{{ route('detail.admin.index') }}">Detail Paket Wisata</a>
+                        </li>
+                        <li>
                             <a href="{{ route('sewa.admin.index') }}">Paket Sewa Mobil</a>
                         </li>
                         <li>
@@ -118,13 +121,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('video.admin.index') }}">
                         <i class="si si-film"></i>
                         <span class="sidebar-mini-hide">Post Video</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="{{ route('blog.admin.index') }}">
                         <i class="si si-note"></i>
                         <span class="sidebar-mini-hide">Post Blog</span>
                     </a>

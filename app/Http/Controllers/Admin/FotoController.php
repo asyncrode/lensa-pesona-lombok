@@ -23,6 +23,12 @@ class FotoController extends Controller
 
                 return date('d-m-Y h:i', strtotime($foto->updated_at));
             })
+            ->addColumn('foto', function ($foto) {
+                $url = asset('foto/'.$foto->foto);
+                $img = '';
+                $img = $img . '<img src="' . $url . '" class="p-0 img-fluid img-thumb" >';
+                return $img;
+            })
             ->addColumn('action', function ($row) {
                 $btn = '';
                 $btn = $btn . '<button href="javascript:void(0)" data-id="' . $row->id . '" id="edit" type="button" class="edit btn btn-primary btn-sm m-1" tittle="Edit"><i class="fa fa-pencil" ></i></button>';
@@ -30,7 +36,7 @@ class FotoController extends Controller
 
                 return $btn;
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['foto','action'])
             ->make(true);
     }
 
@@ -64,17 +70,26 @@ class FotoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $gambar = $request->foto;
-        $gambar_ext = $gambar->getClientOriginalExtension();
-        $name = $gambar->getClientOriginalName();
-        '.' . $gambar_ext;
-        $path = public_path() . '/foto';
-        $upload = $gambar->move($path, $name);
+       
+        if ($request->hasFile('foto')) {
+            $gambar = $request->foto;
+            $gambar_ext = $gambar->getClientOriginalExtension();
+            $name = $gambar->getClientOriginalName();
+            '.' . $gambar_ext;
+            $path = public_path() . '/foto';
+            $upload = $gambar->move($path, $name);
 
-        $foto = Foto::find($id);
-        $foto->lokasi = $request->lokasi;
-        $foto->foto = $name;
-        $foto->save();
+            $foto = Foto::find($id);
+            $foto->lokasi = $request->lokasi;
+            $foto->foto = $name;
+            $foto->save();
+        }else{
+            $foto = Foto::find($id);
+            $foto->lokasi = $request->lokasi;
+            $foto->save();
+        }
+
+        
         return response()->json([
             'message' => 'Data Berhasil Di Update'
         ], 200);

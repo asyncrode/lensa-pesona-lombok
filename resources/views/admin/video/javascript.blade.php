@@ -1,23 +1,24 @@
 <script>
     $(document).ready(function() {
         var idEdit = 0;
-        $('#foto').change(function(){
+        $('#video').change(function(){
             
-            let reader = new FileReader();
-         
-            reader.onload = (e) => { 
-         
-              $('#preview-image-before-upload').attr('src', e.target.result); 
+            const input = $("#video")
+            var files = input[0].files
+
+            const reader = new FileReader();
+            reader.onloadend = () => {
+            $("#video-previews").attr("src", reader.result)
             }
-         
-            reader.readAsDataURL(this.files[0]); 
+
+            reader.readAsDataURL(files[0])
            
-           });
+        });
         // Show Data
-        var table = $('.tableFoto').DataTable({
+        var table = $('.tableVideo').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('foto.admin.data') }}",
+            ajax: "{{ route('video.admin.data') }}",
             'columnDefs': [{
                     "targets": [0, 2, 3], // your case first column
                     "className": "text-center"
@@ -29,12 +30,12 @@
                     name: 'DT_RowIndex'
                 },
                 {
-                    data: 'lokasi',
-                    name: 'lokasi'
+                    data: 'judul',
+                    name: 'judul'
                 },
                 {
-                    data: 'foto',
-                    name: 'foto'
+                    data: 'video',
+                    name: 'video'
                 },
                 {
                     data: 'created_at',
@@ -51,9 +52,9 @@
         // End Show
       
         // Create Modal
-        $('#addFoto').click(function() {
-            $('#frm_foto').trigger("reset");
-            $('#modalFoto').modal('show');
+        $('#addVideo').click(function() {
+            $('#frm_video').trigger("reset");
+            $('#modalVideo').modal('show');
         });
 
         // Store Data
@@ -61,14 +62,14 @@
             var url;
             var type;
             e.preventDefault();
-            let formData = new FormData($('#frm_foto')[0])
+            let formData = new FormData($('#frm_video')[0])
            
             if (idEdit === 0) {
-                url = "{{ route('foto.admin.store') }}"
+                url = "{{ route('video.admin.store') }}"
                 type = "POST"
                 console.log(formData)
             } else {
-                url = "{{ route('foto.admin.update', ':id') }}";
+                url = "{{ route('video.admin.update', ':id') }}";
                 url = url.replace(':id', idEdit);
                 type = "POST"
                 console.log(formData)
@@ -90,8 +91,8 @@
                         showConfirmButton: true
                     })
                     idEdit = 0;
-                    $('#frm_foto').trigger("reset");
-                    $('#modalFoto').modal('hide');
+                    $('#frm_video').trigger("reset");
+                    $('#modalVideo').modal('hide');
                     $('#preview-image-before-upload').attr('src',''); 
                     table.draw()
                 }
@@ -103,23 +104,23 @@
         // EDIT DATA
         $('body').on('click', '#edit', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('foto.admin.edit', ':id') }}'
+            var url = '{{ route('video.admin.edit', ':id') }}'
             url = url.replace(':id', id)
-
-           
 
             $.ajax({
                 type: 'GET',
                 url: url,
                 success: function(res) {
-                    gambar = res.data.foto;
-                    base_url = 'http://localhost:8000/foto/'+encodeURIComponent(res.data.foto)+''
-                    console.log(res)
+                    gambar = res.data.video;
+                    base_url = 'http://localhost:8000/video/'+encodeURIComponent(res.data.video)+''
+                    
+                    console.log(base_url)
                     idEdit = res.data.id;
-                    $('#frm_foto').trigger("reset");
-                    $('#modalFoto').modal('show');
-                    $('#lokasi').val(res.data.lokasi);
-                    $('#preview-image-before-upload').attr('src',base_url); 
+                    $('#frm_video').trigger("reset");
+                    $('#modalVideo').modal('show');
+                    $('#judul').val(res.data.judul);
+                    // $("#video-previews").attr('src',base_url); 
+                    // $("div.s_video video")[0].play();
                     console.log(idEdit)
 
                 }
@@ -130,7 +131,7 @@
         // Delete
         $('body').on('click', '#delete', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('foto.admin.delete', ':id') }}';
+            var url = '{{ route('video.admin.delete', ':id') }}';
             url = url.replace(':id', id);
             Swal.fire({
                     title: 'Anda Yakin ?',

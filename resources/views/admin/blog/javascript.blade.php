@@ -13,28 +13,40 @@
             reader.readAsDataURL(this.files[0]); 
            
            });
+
         // Show Data
-        var table = $('.tableFoto').DataTable({
+        var table = $('.tableBlog').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('foto.admin.data') }}",
+            ajax: "{{ route('blog.admin.data') }}",
             'columnDefs': [{
-                    "targets": [0, 2, 3], // your case first column
+                    "targets": [0, 2, 3, 5], // your case first column
                     "className": "text-center"
 
                 },
+                {
+                    "targets": 3,
+                    "render": function(data, type, row) {
+                        return type === 'display' && data.length > 50 ? data.substr(0, 50) +
+                            '…' : data;
+                    }
+                }
             ],
             columns: [{
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex'
                 },
                 {
-                    data: 'lokasi',
-                    name: 'lokasi'
+                    data: 'judul',
+                    name: 'judul'
                 },
                 {
                     data: 'foto',
                     name: 'foto'
+                },
+                {
+                    data: 'deskripsi',
+                    name: 'deskripsi'
                 },
                 {
                     data: 'created_at',
@@ -49,11 +61,12 @@
             ]
         });
         // End Show
-      
+        // inisiasi summernote
+        $('#deskripsi').summernote();
         // Create Modal
-        $('#addFoto').click(function() {
-            $('#frm_foto').trigger("reset");
-            $('#modalFoto').modal('show');
+        $('#addBlog').click(function() {
+            $('#frm_blog').trigger("reset");
+            $('#modalBlog').modal('show');
         });
 
         // Store Data
@@ -61,14 +74,18 @@
             var url;
             var type;
             e.preventDefault();
-            let formData = new FormData($('#frm_foto')[0])
-           
+            var judul = $("#judul").val();
+            var featured_image = $("#foto")[0].files[0];
+            var formData = new FormData( $('#frm_blog')[0] );
+            formData.append("deskripsi", $('#deskripsi').summernote('code') );
+            // formData.append('judul', judul);
+            // formData.append('featured_image', featured_image);
+
             if (idEdit === 0) {
-                url = "{{ route('foto.admin.store') }}"
+                url = "{{ route('blog.admin.store') }}"
                 type = "POST"
-                console.log(formData)
-            } else {
-                url = "{{ route('foto.admin.update', ':id') }}";
+            }else {
+                url = "{{ route('blog.admin.update', ':id') }}";
                 url = url.replace(':id', idEdit);
                 type = "POST"
                 console.log(formData)
@@ -80,8 +97,8 @@
                 type: type,
                 url: url,
                 data: formData,
-                contentType: false, // requires jQuery 1.6+
                 processData: false,
+                contentType: false,
                 success: function(response) {
                     Swal.fire({
                         title: 'Berhasil !',
@@ -90,35 +107,33 @@
                         showConfirmButton: true
                     })
                     idEdit = 0;
-                    $('#frm_foto').trigger("reset");
-                    $('#modalFoto').modal('hide');
-                    $('#preview-image-before-upload').attr('src',''); 
+                    console.log($('#frm_blog').serialize())
+                    $('#frm_blog').trigger("reset");
+                    $('#modalBlog').modal('hide');
                     table.draw()
                 }
             })
         });
         // End Store Data
 
-
         // EDIT DATA
         $('body').on('click', '#edit', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('foto.admin.edit', ':id') }}'
+            var url = '{{ route('blog.admin.edit', ':id') }}'
             url = url.replace(':id', id)
-
-           
 
             $.ajax({
                 type: 'GET',
                 url: url,
                 success: function(res) {
-                    gambar = res.data.foto;
-                    base_url = 'http://localhost:8000/foto/'+encodeURIComponent(res.data.foto)+''
-                    console.log(res)
                     idEdit = res.data.id;
-                    $('#frm_foto').trigger("reset");
-                    $('#modalFoto').modal('show');
-                    $('#lokasi').val(res.data.lokasi);
+                    gambar = res.data.foto;
+                    base_url = 'http://localhost:8000/blog/'+encodeURIComponent(res.data.foto)+''
+                    idEdit = res.data.id;
+                    $('#frm_blog').trigger("reset");
+                    $('#modalBlog').modal('show');
+                    $('#judul').val(res.data.judul);
+                    $('#deskripsi').summernote('code', res.data.deskripsi);
                     $('#preview-image-before-upload').attr('src',base_url); 
                     console.log(idEdit)
 
@@ -130,7 +145,7 @@
         // Delete
         $('body').on('click', '#delete', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('foto.admin.delete', ':id') }}';
+            var url = '{{ route('blog.admin.delete', ':id') }}';
             url = url.replace(':id', id);
             Swal.fire({
                     title: 'Anda Yakin ?',
@@ -171,22 +186,4 @@
 
     })
 
-    document.querySelectorAll('input[type-currency="IDR"]').forEach((element) => {
-        element.addEventListener('keyup', function(e) {
-            let cursorPostion = this.selectionStart;
-            let value = parseInt(this.value.replace(/[^,\d]/g, ''));
-            let originalLenght = this.value.length;
-            if (isNaN(value)) {
-                this.value = "";
-            } else {
-                this.value = value.toLocaleString('id-ID', {
-                    currency: 'IDR',
-                    style: 'currency',
-                    minimumFractionDigits: 0
-                });
-                cursorPostion = this.value.length - originalLenght + cursorPostion;
-                this.setSelectionRange(cursorPostion, cursorPostion);
-            }
-        });
-    });
 </script>

@@ -1,25 +1,14 @@
 <script>
     $(document).ready(function() {
         var idEdit = 0;
-        $('#foto').change(function(){
-            
-            let reader = new FileReader();
-         
-            reader.onload = (e) => { 
-         
-              $('#preview-image-before-upload').attr('src', e.target.result); 
-            }
-         
-            reader.readAsDataURL(this.files[0]); 
-           
-           });
+
         // Show Data
-        var table = $('.tableFoto').DataTable({
+        var table = $('.tableDetail').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('foto.admin.data') }}",
+            ajax: "{{ route('detail.admin.data') }}",
             'columnDefs': [{
-                    "targets": [0, 2, 3], // your case first column
+                    "targets": [0,1, 2, 3, 5], // your case first column
                     "className": "text-center"
 
                 },
@@ -29,12 +18,20 @@
                     name: 'DT_RowIndex'
                 },
                 {
-                    data: 'lokasi',
-                    name: 'lokasi'
+                    data: 'id_wisata',
+                    name: 'id_wisata'
                 },
                 {
-                    data: 'foto',
-                    name: 'foto'
+                    data: 'jmlPeserta',
+                    name: 'jmlPeserta'
+                },
+                {
+                    data: 'hrgTour',
+                    name: 'hrgTour'
+                },
+                {
+                    data: 'hrgTourHotel',
+                    name: 'hrgTourHotel'
                 },
                 {
                     data: 'created_at',
@@ -49,29 +46,42 @@
             ]
         });
         // End Show
-      
+
+        // Get Wisata
+        $.ajax({
+            url:"{{ route('detail.admin.wisata') }}",
+            type:'GET',
+            success:function(data){
+                console.log(data)
+                $.each(data,function(key, value)
+                {
+                    $("#wisata").append('<option value=' + value.id + '>' + value.nama + '</option>');
+                });
+            }
+        })
+        // End Wisata
+
         // Create Modal
-        $('#addFoto').click(function() {
-            $('#frm_foto').trigger("reset");
-            $('#modalFoto').modal('show');
+        $('#addDetail').click(function() {
+            $('#frm_detail').trigger("reset");
+            $('#modalDetail').modal('show');
         });
 
         // Store Data
-        $('#saveBtn').click(function(e) {
+        $('#saveBtn').click(function() {
             var url;
             var type;
-            e.preventDefault();
-            let formData = new FormData($('#frm_foto')[0])
-           
+
             if (idEdit === 0) {
-                url = "{{ route('foto.admin.store') }}"
+                url = "{{ route('detail.admin.store') }}"
                 type = "POST"
-                console.log(formData)
             } else {
-                url = "{{ route('foto.admin.update', ':id') }}";
+
+                url = '{{ route('detail.admin.update', ':id') }}';
                 url = url.replace(':id', idEdit);
-                type = "POST"
-                console.log(formData)
+
+
+                type = "PUT"
             }
             $.ajax({
                 headers: {
@@ -79,9 +89,7 @@
                 },
                 type: type,
                 url: url,
-                data: formData,
-                contentType: false, // requires jQuery 1.6+
-                processData: false,
+                data: $('#frm_detail').serialize(),
                 success: function(response) {
                     Swal.fire({
                         title: 'Berhasil !',
@@ -90,37 +98,44 @@
                         showConfirmButton: true
                     })
                     idEdit = 0;
-                    $('#frm_foto').trigger("reset");
-                    $('#modalFoto').modal('hide');
-                    $('#preview-image-before-upload').attr('src',''); 
+                    console.log($('#frm_detail').serialize())
+                    $('#frm_detail').trigger("reset");
+                    $('#modalDetail').modal('hide');
                     table.draw()
                 }
             })
         });
         // End Store Data
-
-
+        
+        
         // EDIT DATA
         $('body').on('click', '#edit', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('foto.admin.edit', ':id') }}'
+            var url = '{{ route('detail.admin.edit', ':id') }}'
             url = url.replace(':id', id)
-
-           
 
             $.ajax({
                 type: 'GET',
                 url: url,
                 success: function(res) {
-                    gambar = res.data.foto;
-                    base_url = 'http://localhost:8000/foto/'+encodeURIComponent(res.data.foto)+''
                     console.log(res)
                     idEdit = res.data.id;
-                    $('#frm_foto').trigger("reset");
-                    $('#modalFoto').modal('show');
-                    $('#lokasi').val(res.data.lokasi);
-                    $('#preview-image-before-upload').attr('src',base_url); 
-                    console.log(idEdit)
+                    $('#frm_detail').trigger("reset");
+                    $('#modalDetail').modal('show');
+                    $('#peserta').val(res.data.jmlPeserta);
+                    $('#harga').val(res.data.hrgTour);
+                    $('#harga_hotel').val(res.data.hrgTourHotel);
+                    $("#wisata").empty()
+                    $("div.s_wisata select").val(res.wisata).change();
+                       
+                    // $("#admin").append('<option value="'+res.data.id+'">Default=='+data.default.name+'</option>');
+                    $.each(res.wisata,function(key, value)
+                    {
+                        $("#wisata").append('<option value=' + value.id + '>' + value.nama + '</option>');
+                    });
+                    console.log(res.wisata)
+
+                    
 
                 }
             })
@@ -130,7 +145,7 @@
         // Delete
         $('body').on('click', '#delete', function() {
             var id = $(this).attr('data-id');
-            var url = '{{ route('foto.admin.delete', ':id') }}';
+            var url = '{{ route('detail.admin.delete', ':id') }}';
             url = url.replace(':id', id);
             Swal.fire({
                     title: 'Anda Yakin ?',
