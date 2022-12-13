@@ -4,32 +4,54 @@
 
         // Show Data
         var table = $('.tableWisata').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('wisata.admin.data') }}",
-        'columnDefs': [
-        {
-            "targets": [0,3], // your case first column
-            "className": "text-center"
-            
-        },
-        {
-            "targets": 4,
-            "render": 
-            function (data, type, row) {
-            return type === 'display' && data.length > 50 ? data.substr(0, 50) + '…' : data;
-        }
-        }],
-        columns: [
-            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'nama', name: 'nama'},
-            {data: 'harga', name: 'harga'},
-            {data: 'tujuan', name: 'tujuan'},
-            {data: 'deskripsi', name: 'deskripsi'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ]
-    });
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('wisata.admin.data') }}",
+            'columnDefs': [{
+                    "targets": [0, 2, 3, 5, 6], // your case first column
+                    "className": "text-center"
+
+                },
+                {
+                    "targets": 4,
+                    "render": function(data, type, row) {
+                        return type === 'display' && data.length > 50 ? data.substr(0, 50) +
+                            '…' : data;
+                    }
+                }
+            ],
+            columns: [{
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex'
+                },
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'harga',
+                    name: 'harga'
+                },
+                {
+                    data: 'tujuan',
+                    name: 'tujuan'
+                },
+                {
+                    data: 'deskripsi',
+                    name: 'deskripsi'
+                },
+                {
+                    data: 'updated_at',
+                    name: 'updated_at'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+            ]
+        });
         // End Show
         // inisiasi summernote
         $('#deskripsi').summernote();
@@ -43,7 +65,7 @@
         $('#saveBtn').click(function(){
             var url;
             var type;
-            
+
             if(idEdit === 0)
             {
                 url = "{{ route('wisata.admin.store') }}"
@@ -52,8 +74,8 @@
 
                 url = '{{ route("wisata.admin.update", ":id") }}';
                 url = url.replace(':id', idEdit );
-                
-                
+
+
                 type = "PUT"
             }
             $.ajax({
@@ -80,7 +102,7 @@
         });
         // End Store Data
 
-        
+
         // EDIT DATA
         $('body').on('click','#edit',function(){
             var id = $(this).attr('data-id');
@@ -105,7 +127,7 @@
             })
         })
         // END EDIT
-        
+
         // Delete
         $('body').on('click','#delete',function(){
             var id = $(this).attr('data-id');
@@ -130,14 +152,14 @@
                         type : 'DELETE',
                         url:url,
                         success:function(response){
-                        
+
                             Swal.fire({
                                 title: 'Berhasil!',
                                 icon : 'success',
                                 text : 'Data Berhasil Di Hapus',
                                 showConfirmButton :true
                             })
-                        
+
                             table.draw()
                         }
                     })
