@@ -18,8 +18,8 @@
                     name: 'DT_RowIndex'
                 },
                 {
-                    data: 'id_wisata',
-                    name: 'id_wisata'
+                    data: 'wisata.nama',
+                    name: 'wisata'
                 },
                 {
                     data: 'jmlPeserta',
