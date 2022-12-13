@@ -10,4 +10,7 @@ class Wisata extends Model
     protected $fillable = [
         'id', 'nama', 'harga', 'tujuan', 'deskripsi'
     ];
+    public function detail() {
+        return $this->hasMany(Detail_harga::class);
+    }
 }

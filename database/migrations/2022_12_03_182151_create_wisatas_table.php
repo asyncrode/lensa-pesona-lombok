@@ -16,9 +16,9 @@ class CreateWisatasTable extends Migration
         Schema::create('wisatas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('harga');
+            $table->string('harga');
             $table->string('tujuan');
-            $table->string('foto');
+            // $table->string('foto');
             $table->longText('deskripsi');
             $table->timestamps();
         });

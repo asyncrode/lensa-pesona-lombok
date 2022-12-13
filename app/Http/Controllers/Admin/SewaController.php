@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Wisata;
+use App\Sewa;
 use DataTables;
 
-class WisataController extends Controller
+class SewaController extends Controller
 {
     public function __construct()
     {
@@ -16,21 +16,17 @@ class WisataController extends Controller
 
     public function index()
     {
-        return view('admin.wisata.index');
+        return view('admin.sewa.index');
     }
 
-    public function getWisata()
+    public function getSewa()
     {
-        $wisata = Wisata::all();
-        return Datatables::of($wisata)
+        $sewa = Sewa::all();
+        return Datatables::of($sewa)
             ->addIndexColumn()
-            ->addColumn('updated_at', function ($wisata) {
+            ->addColumn('updated_at', function ($sewa) {
 
-                return date('d-m-Y h:i', strtotime($wisata->updated_at));
-            })
-            ->addColumn('deskripsi', function ($wisata) {
-
-                return strip_tags($wisata->deskripsi);
+                return date('d-m-Y h:i', strtotime($sewa->updated_at));
             })
             ->addColumn('action', function ($row) {
                 $btn = '';
@@ -45,12 +41,12 @@ class WisataController extends Controller
 
     public function store(Request $request)
     {
-        $wisata = new Wisata;
-        $wisata->nama = $request->nama;
-        $wisata->harga = $request->harga;
-        $wisata->tujuan = $request->tujuan;
-        $wisata->deskripsi = $request->deskripsi;
-        $wisata->save();
+        $sewa = new Sewa;
+        $sewa->jenis = $request->jenis;
+        $sewa->kapasitas = $request->kapasitas;
+        $sewa->tarif = $request->tarif;
+        $sewa->overtime = $request->overtime;
+        $sewa->save();
         return response()->json([
             'message' => 'Paket Berhasil Di Tambah'
         ], 200);
@@ -58,30 +54,30 @@ class WisataController extends Controller
 
     public function edit($id)
     {
-        $wisata = Wisata::find($id);
+        $sewa = Sewa::find($id);
         return response()->json([
             'message' => 'Edit Paket',
-            'data' => $wisata,
+            'data' => $sewa,
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->nama = $request->nama;
-        $wisata->harga = $request->harga;
-        $wisata->tujuan = $request->tujuan;
-        $wisata->deskripsi = $request->deskripsi;
-        $wisata->save();
+        $sewa = Sewa::find($id);
+        $sewa->jenis = $request->jenis;
+        $sewa->kapasitas = $request->kapasitas;
+        $sewa->tarif = $request->tarif;
+        $sewa->overtime = $request->overtime;
+        $sewa->save();
         return response()->json([
-            'message' => 'Data Berhasil Di Update'
+            'message' => 'Paket Berhasil Di Update'
         ], 200);
     }
 
     public function delete($id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->delete();
+        $sewa = Sewa::find($id);
+        $sewa->delete();
         return response()->json([
             'message' => 'Paket Deleted',
         ], 200);

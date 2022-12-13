@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Detail_harga;
 use App\Wisata;
 use DataTables;
 
-class WisataController extends Controller
+class DetailController extends Controller
 {
     public function __construct()
     {
@@ -16,21 +17,17 @@ class WisataController extends Controller
 
     public function index()
     {
-        return view('admin.wisata.index');
+        return view('admin.detail.index');
     }
 
-    public function getWisata()
+    public function getDetail()
     {
-        $wisata = Wisata::all();
-        return Datatables::of($wisata)
+        $detail = Detail_harga::with('wisata')->latest()->get();
+        return Datatables::of($detail)
             ->addIndexColumn()
-            ->addColumn('updated_at', function ($wisata) {
+            ->addColumn('updated_at', function ($detail) {
 
-                return date('d-m-Y h:i', strtotime($wisata->updated_at));
-            })
-            ->addColumn('deskripsi', function ($wisata) {
-
-                return strip_tags($wisata->deskripsi);
+                return date('d-m-Y h:i', strtotime($detail->updated_at));
             })
             ->addColumn('action', function ($row) {
                 $btn = '';
@@ -43,36 +40,44 @@ class WisataController extends Controller
             ->make(true);
     }
 
+    public function getWisata()
+    {
+        $wisata = Wisata::all();
+        return response()->json($wisata, 200);
+    }
+
     public function store(Request $request)
     {
-        $wisata = new Wisata;
-        $wisata->nama = $request->nama;
-        $wisata->harga = $request->harga;
-        $wisata->tujuan = $request->tujuan;
-        $wisata->deskripsi = $request->deskripsi;
-        $wisata->save();
+        $detail = new Detail_harga;
+        $detail->jmlPeserta = $request->peserta;
+        $detail->hrgTour = $request->harga;
+        $detail->hrgTourHotel = $request->harga_hotel;
+        $detail->id_wisata = $request->wisata;
+        $detail->save();
         return response()->json([
-            'message' => 'Paket Berhasil Di Tambah'
+            'message' => 'Detail_harga Berhasil Di Tambah'
         ], 200);
     }
 
     public function edit($id)
     {
-        $wisata = Wisata::find($id);
+        $detail = Detail_harga::find($id);
+        $wisata = Wisata::all();
         return response()->json([
             'message' => 'Edit Paket',
-            'data' => $wisata,
+            'data' => $detail,
+            'wisata' => $wisata,
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->nama = $request->nama;
-        $wisata->harga = $request->harga;
-        $wisata->tujuan = $request->tujuan;
-        $wisata->deskripsi = $request->deskripsi;
-        $wisata->save();
+        $detail = Detail_harga::find($id);
+        $detail->jmlPeserta = $request->peserta;
+        $detail->hrgTour = $request->harga;
+        $detail->hrgTourHotel = $request->harga_hotel;
+        $detail->id_wisata = $request->wisata;
+        $detail->save();
         return response()->json([
             'message' => 'Data Berhasil Di Update'
         ], 200);
@@ -80,8 +85,8 @@ class WisataController extends Controller
 
     public function delete($id)
     {
-        $wisata = Wisata::find($id);
-        $wisata->delete();
+        $detail = Detail_harga::find($id);
+        $detail->delete();
         return response()->json([
             'message' => 'Paket Deleted',
         ], 200);

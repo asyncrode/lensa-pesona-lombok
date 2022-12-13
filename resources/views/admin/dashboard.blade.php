@@ -13,7 +13,7 @@
         </div>
         <!-- END Header -->
 
-        <div class="content">
+        {{-- <div class="content">
             <!-- Statistics -->
             <!-- CountTo ([data-toggle="countTo"] is initialized in Helpers.coreAppearCountTo()) -->
             <!-- For more info and examples you can check out https://github.com/mhuggins/jquery-countTo -->
@@ -656,7 +656,7 @@
                 </div>
                 <!-- END Latest Orders and Top Products -->
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- END Page Content -->
 @endsection

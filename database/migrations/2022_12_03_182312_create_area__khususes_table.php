@@ -16,9 +16,9 @@ class CreateAreaKhususesTable extends Migration
         Schema::create('area__khususes', function (Blueprint $table) {
             $table->id();
             $table->string('area');
-            $table->integer('biayaA');
-            $table->integer('biayaI');
-            $table->integer('biayaH');
+            $table->string('biayaA');
+            $table->string('biayaI');
+            $table->string('biayaH');
             $table->timestamps();
         });
     }
