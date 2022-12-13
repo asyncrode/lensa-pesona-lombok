@@ -55,10 +55,12 @@
         // End Show
         // inisiasi summernote
         $('#deskripsi').summernote();
+
         // Create Modal
         $('#addWisata').click(function() {
             $('#frm_wisata').trigger("reset");
             $('#modalWisata').modal('show');
+            $('#deskripsi').summernote('reset');
         });
 
         // Store Data
