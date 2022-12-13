@@ -40,152 +40,32 @@
                     anda untuk wisata yang lebih fleksibel!</p>
                 <br>
             </div>
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 3 Hari 2 Malam (Type A)</h2>
-                        <p>Kawasan Kuta Mandalika <br>
-                            Gili Trawangan, Air & Meno</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 3 Hari 2 Malam (Type B)</h2>
-                        <p>Kawasan Kuta Mandalika <br>
-                            Pantai Pink Lombok</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 4 Hari 3 Malam (Type A)</h2>
-                        <p>Kawasan Kuta Mandalika.
-                            Gili Trawangan, Air & Meno, Air Terjun Sendang Gila & Tiu Kelep</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 4 Hari 3 Malam (Type B)</h2>
-                        <p>Kawasan Kuta Mandalika<br>
-                            Pantai Pink Lombok
-                            Gili Trawangan, Air & Meno</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 5 Hari 4 Malam (Type A)</h2>
-                        <p>Kawasan Kuta Mandalika.
-                            Gili Trawangan, Air & Meno
-                            Air Terjun Sendang Gila & Tiu Kelep
-                            Gili Nanggu, Sudak & Kedis</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 5 Hari 4 Malam (Type B)</h2>
-                        <p>Kawasan Kuta Mandalika.
-                            Gili Trawangan, Air & Meno
-                            Gili Nanggu, Sudak & Kedis
-                            Pantai Pink Lombok</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 5 Hari 4 Malam (Type B)</h2>
-                        <p>Kawasan Kuta Mandalika.
-                            Gili Trawangan, Air & Meno
-                            Gili Nanggu, Sudak & Kedis
-                            Pantai Pink Lombok</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 5 Hari 4 Malam (Type B)</h2>
-                        <p>Kawasan Kuta Mandalika.
-                            Gili Trawangan, Air & Meno
-                            Gili Nanggu, Sudak & Kedis
-                            Pantai Pink Lombok</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                <a href="{{ asset('assets_l/images/img_1.jpg') }}" class="fh5co-project-item image-popup">
-                    <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                    <div class="fh5co-text">
-                        <h2>Paket Tour Lombok 5 Hari 4 Malam (Type B)</h2>
-                        <p>Kawasan Kuta Mandalika.
-                            Gili Trawangan, Air & Meno
-                            Gili Nanggu, Sudak & Kedis
-                            Pantai Pink Lombok</p>
-                        <iconify-icon icon="icomoon-free:price-tag"></iconify-icon>
-                        <span style="margin-right: 9em;">1550k</span>
-                        <iconify-icon icon="material-symbols:location-on"></iconify-icon>
-                        <span>Lombok</span>
-                    </div>
-                </a>
-            </div>
         </div>
+        <div class="row">
+                @foreach($wisata as $w)
+
+                <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
+                    <a href="{{ route('d-wisata', $w->id) }}" class="fh5co-project-item" >
+                        <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
+                        <div class="fh5co-text">
+                            <h2>{{ $w->nama }}</h2>
+                            <p style="padding: 10px 10px ">{{ $w->tujuan }}</p>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <i class="fa fa-tag"></i> <span>{{ $w->harga }}</span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <i class="fa fa-map-marker-alt"></i> <span>Lombok</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                @endforeach
+        </div>
+
+
 
         <div style="padding-top: 2em">
             <div>

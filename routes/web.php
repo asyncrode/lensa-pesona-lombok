@@ -15,35 +15,18 @@ use Symfony\Component\Routing\Route as ComponentRoutingRoute;
 |
 */
 
-Route::get('/', function () {
-    return view('landing.home');
-})->name('home');
-Route::get('/profil', function () {
-    return view('landing.profile');
-})->name('profil');
+Route::get('/', 'Landing\HomeController@index')->name('home');
 
-Route::get('/wisata', function () {
-    return view('landing.wisata');
-})->name('wisata');
-Route::get('/detail-wisata', function () {
-    return view('landing.detail_wisata');
-})->name('d-wisata');
-Route::get('/blog', function () {
-    return view('landing.blog');
-})->name('blog');
+Route::get('/profil', 'Landing\ProfileController@index')->name('profil');
+
+Route::get('/wisata', 'Landing\WisataController@index')->name('wisata');
+Route::get('/detail-wisata/{id}', 'Landing\WisataController@detail')->name('d-wisata');
+
+Route::get('/blog', 'Landing\BlogController@index')->name('blog');
 Route::get('/detail-blog', function () {
     return view('landing.detail_blog');
 })->name('d-blog');
-Route::get('/sewa-mobil', function () {
-    return view('landing.sewa');
-})->name('sewa');
-Route::get('/galeri', function () {
-    return view('landing.galeri');
-})->name('galeri');
-// Route::get('/admin', function () {
-//     return view('admin.login');
-// });
 
-Route::get('/sewa', function () {
-    return view('admin.sewa');
-});
+Route::get('/sewa-mobil', 'Landing\SewaController@index')->name('sewa');
+
+Route::get('/galeri', 'Landing\GaleriController@index')->name('galeri');

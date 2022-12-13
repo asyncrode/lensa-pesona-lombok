@@ -502,6 +502,7 @@ body {
 @media screen and (max-width: 768px) {
   .fh5co-lead {
     font-size: 35px;
+    padding: 30px;
   }
 }
 
@@ -509,6 +510,12 @@ body {
   font-size: 20px;
   line-height: 32px;
   font-weight: 300;
+}
+@media screen and (max-width: 768px) {
+  .fh5co-sub-lead {
+    font-size: 12px;
+    padding: 30px;
+  }
 }
 
 #fh5co-features,
@@ -1471,7 +1478,7 @@ body {
 }
 
 li a:hover {
-  background-color: #111;
+  background-color: #FA5555;
 }
 
 .fade-carousel {
@@ -1563,13 +1570,10 @@ font-weight: 100;
 /********************************/
 /*          Custom Buttons      */
 /********************************/
-.btn.btn-lg {padding: 10px 40px;}
 .btn.btn-hero,
 .btn.btn-hero:hover,
 .btn.btn-hero:focus {
-  color: #f5f5f5;
-  background-color: #1abc9c;
-  border-color: #1abc9c;
+
   outline: none;
   margin: 20px auto;
 }
