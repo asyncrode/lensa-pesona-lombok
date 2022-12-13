@@ -52,7 +52,7 @@ class DetailController extends Controller
         $detail->jmlPeserta = $request->peserta;
         $detail->hrgTour = $request->harga;
         $detail->hrgTourHotel = $request->harga_hotel;
-        $detail->id_wisata = $request->wisata;
+        $detail->wisata_id = $request->wisata;
         $detail->save();
         return response()->json([
             'message' => 'Detail_harga Berhasil Di Tambah'
@@ -76,7 +76,7 @@ class DetailController extends Controller
         $detail->jmlPeserta = $request->peserta;
         $detail->hrgTour = $request->harga;
         $detail->hrgTourHotel = $request->harga_hotel;
-        $detail->id_wisata = $request->wisata;
+        $detail->wisata_id = $request->wisata;
         $detail->save();
         return response()->json([
             'message' => 'Data Berhasil Di Update'

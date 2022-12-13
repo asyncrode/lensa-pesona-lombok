@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function () {
     Auth::routes();
-    Route::get('/', 'Admin\AdminLoginController@index');
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
-
 
     Route::group(['prefix' => 'wisata'], function () {
         Route::get('/', 'Admin\WisataController@index')->name('wisata.admin.index');

@@ -15,11 +15,11 @@ class CreateDetailHargasTable extends Migration
     {
         Schema::create('detail_hargas', function (Blueprint $table) {
             $table->id();   
-            $table->unsignedBigInteger('id_wisata');
+            $table->unsignedBigInteger('wisata_id');
             $table->string('jmlPeserta');
             $table->string('hrgTour');
             $table->string('hrgTourHotel');
-            $table->foreign('id_wisata')->references('id')->on('wisatas')->onDelete('cascade');
+            $table->foreign('wisata_id')->references('id')->on('wisatas')->onDelete('cascade');
             $table->timestamps();
         });
     }
