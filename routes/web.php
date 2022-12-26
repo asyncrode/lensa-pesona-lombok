@@ -22,10 +22,8 @@ Route::get('/profil', 'Landing\ProfileController@index')->name('profil');
 Route::get('/wisata', 'Landing\WisataController@index')->name('wisata');
 Route::get('/detail-wisata/{id}', 'Landing\WisataController@detail')->name('d-wisata');
 
-Route::get('/blog', 'Landing\BlogController@index')->name('blog');
-Route::get('/detail-blog', function () {
-    return view('landing.detail_blog');
-})->name('d-blog');
+Route::get('/blogs', 'Landing\BlogController@index')->name('blog');
+Route::get('/detail-blog/{id}', 'Landing\BlogController@detail')->name('d-blog');
 
 Route::get('/sewa-mobil', 'Landing\SewaController@index')->name('sewa');
 

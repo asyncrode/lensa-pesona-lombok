@@ -9,11 +9,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lensa Pesona Lombok &mdash; Agen Tour Wisata</title>
+    <title>Lensa Pesona Lombok &mdash; Paket Wisata, Honeymoon, dan Gathering Terbaik </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-    <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-    <meta name="author" content="FREEHTML5.CO" />
+    <meta name="description"
+        content="Liburan di Pulau Lombok adalah pilihan yang sempurna bagi Anda yang ingin menikmati suasana pantai yang tenang dan alami. Temukan informasi tentang tempat wisata, aktivitas, dan penginapan terbaik di Pulau Lombok di website kami." />
+    <meta name="keywords"
+        content="liburan di Pulau Lombok, tempat wisata di Pulau Lombok, aktivitas di Pulau Lombok, penginapan di Pulau Lombok" />
+    <meta name="robots" content="index, follow" />
 
     <!--
  //////////////////////////////////////////////////////
@@ -29,19 +31,11 @@
  //////////////////////////////////////////////////////
  -->
 
-    <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:description" content="" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="" />
-    <meta name="twitter:url" content="" />
-    <meta name="twitter:card" content="" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('../favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('../favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('../favicon.png') }}">
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet'

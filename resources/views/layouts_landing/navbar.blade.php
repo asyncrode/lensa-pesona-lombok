@@ -8,10 +8,18 @@
 <body>
 
     <!-- Loader -->
-    <div class="fh5co-loader"></div>
+    {{-- <div class="fh5co-loader"></div> --}}
+    <!-- START PRELOADER -->
+    <div class="preloader">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
+    </div>
+    <!-- END PRELOADER -->
 
     <div id="fh5co-page">
-        <section id="fh5co-header">
+        <section id="fh5co-header" class="fh5co-header">
             <div class="container">
                 <nav role="navigation">
                     <ul class="pull-left left-menu mts" style="padding-top: 5px">
@@ -27,7 +35,7 @@
                     </h1>
                     <ul class="pull-right right-menu mts" style="padding-top: 5px">
                         <li><a href="{{ route('sewa') }}">Sewa Mobil</a></li>
-                        <li><a href="{{ route('galeri') }}">Gallery</a></li>
+                        <li><a href="{{ route('galeri') }}">Galeri</a></li>
                         <li><a href="{{ route('blog') }}">Blog</a></li>
                     </ul>
                 </nav>

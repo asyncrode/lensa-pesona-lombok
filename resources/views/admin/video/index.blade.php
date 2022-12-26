@@ -14,9 +14,9 @@
                     <thead>
                         <tr>
                             <th class="d-none d-sm-table-cell text-center" style="width: 5%;">no</th>
-                            <th class="d-none d-sm-table-cell text-center" style="width: 30%;">judul</th>
-                            <th class="d-none d-sm-table-cell text-center" style="width: 10%;">foto</th>
-                            <th class="d-none d-sm-table-cell text-center">Tanggal</th>
+                            <th class="d-none d-sm-table-cell text-center">judul</th>
+                            <th class="d-none d-sm-table-cell text-center" style="width: 20%;">video</th>
+                            <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Tanggal</th>
                             <th class="d-none d-sm-table-cell text-center" style="width: 10%;">action</th>
                         </tr>
                     </thead>
@@ -32,7 +32,7 @@
         <div class="modal-content">
             <div class="block block-themed block-transparent mb-0">
                 <div class="block-header bg-primary-dark">
-                    <h3 class="block-title">Paket Video</h3>
+                    <h3 class="block-title">Post Video</h3>
                     <div class="block-options">
                         <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
                             <i class="si si-close"></i>
@@ -44,12 +44,12 @@
                         @csrf
                         <div class="form-group">
                             <label for="judul">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul" placeholder="Lokasi">
+                            <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Video">
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="image">Upload Video</label>
-                                <input type="file" name="video" placeholder="Choose image" id="video" accept="image/*,video/*,.mp4">
+                                <input type="file" name="video" placeholder="Choose video" id="video" accept="video/*,.mp4">
                                 @error('video')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
@@ -62,7 +62,7 @@
                                     Sorry, your browser doesn't support embedded videos.
                                 </video>
                             </div>
-                            
+
                         </div>
                     </form>
                 </div>

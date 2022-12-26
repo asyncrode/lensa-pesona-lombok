@@ -25,7 +25,7 @@ class WisataController extends Controller
     {
         $wisata = Wisata::all();
         $detail = Wisata::find($id);
-        $detailH = Detail_harga::all();
-        return view('landing.detail_wisata', compact('wisata', 'detail', 'detailH'));
+        $harga = Detail_harga::all()->where('wisata_id', $id);
+        return view('landing.detail_wisata', compact('wisata', 'detail', 'harga'));
     }
 }

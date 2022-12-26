@@ -2,7 +2,7 @@
     $(document).ready(function() {
         var idEdit = 0;
         $('#video').change(function(){
-            
+
             const input = $("#video")
             var files = input[0].files
 
@@ -12,7 +12,7 @@
             }
 
             reader.readAsDataURL(files[0])
-           
+
         });
         // Show Data
         var table = $('.tableVideo').DataTable({
@@ -38,8 +38,8 @@
                     name: 'video'
                 },
                 {
-                    data: 'created_at',
-                    name: 'created_at'
+                    data: 'updated_at',
+                    name: 'updated_at'
                 },
                 {
                     data: 'action',
@@ -50,7 +50,7 @@
             ]
         });
         // End Show
-      
+
         // Create Modal
         $('#addVideo').click(function() {
             $('#frm_video').trigger("reset");
@@ -63,7 +63,7 @@
             var type;
             e.preventDefault();
             let formData = new FormData($('#frm_video')[0])
-           
+
             if (idEdit === 0) {
                 url = "{{ route('video.admin.store') }}"
                 type = "POST"
@@ -93,7 +93,7 @@
                     idEdit = 0;
                     $('#frm_video').trigger("reset");
                     $('#modalVideo').modal('hide');
-                    $('#preview-image-before-upload').attr('src',''); 
+                    $('#video-previews').attr('src','');
                     table.draw()
                 }
             })
@@ -113,13 +113,13 @@
                 success: function(res) {
                     gambar = res.data.video;
                     base_url = 'http://localhost:8000/video/'+encodeURIComponent(res.data.video)+''
-                    
+
                     console.log(base_url)
                     idEdit = res.data.id;
                     $('#frm_video').trigger("reset");
                     $('#modalVideo').modal('show');
                     $('#judul').val(res.data.judul);
-                    // $("#video-previews").attr('src',base_url); 
+                    $("#video-previews").attr('src',base_url);
                     // $("div.s_video video")[0].play();
                     console.log(idEdit)
 

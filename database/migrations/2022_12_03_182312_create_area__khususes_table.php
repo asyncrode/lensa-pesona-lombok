@@ -13,7 +13,7 @@ class CreateAreaKhususesTable extends Migration
      */
     public function up()
     {
-        Schema::create('area__khususes', function (Blueprint $table) {
+        Schema::create('area_khususes', function (Blueprint $table) {
             $table->id();
             $table->string('area');
             $table->string('biayaA');
@@ -30,6 +30,6 @@ class CreateAreaKhususesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('area__khususes');
+        Schema::dropIfExists('area_khususes');
     }
 }

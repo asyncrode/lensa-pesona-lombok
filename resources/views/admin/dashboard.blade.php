@@ -3,7 +3,7 @@
     <!-- Page Content -->
     <div class="content">
         <!-- Header -->
-        <div class="block block-rounded bg-gd-earth">
+        <div class="block block-rounded bg-gd-pulse">
             <div class="block-content bg-white-op-5">
                 <div class="py-30 text-center">
                     <h1 class="font-w700 text-white mb-10">Dashboard</h1>

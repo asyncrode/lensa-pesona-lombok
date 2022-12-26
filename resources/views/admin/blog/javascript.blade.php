@@ -1,18 +1,18 @@
 <script>
     $(document).ready(function() {
         var idEdit = 0;
-        $('#foto').change(function(){
-            
+        $('#foto').change(function() {
+
             let reader = new FileReader();
-         
-            reader.onload = (e) => { 
-         
-              $('#preview-image-before-upload').attr('src', e.target.result); 
+
+            reader.onload = (e) => {
+
+                $('#preview-image-before-upload').attr('src', e.target.result);
             }
-         
-            reader.readAsDataURL(this.files[0]); 
-           
-           });
+
+            reader.readAsDataURL(this.files[0]);
+
+        });
 
         // Show Data
         var table = $('.tableBlog').DataTable({
@@ -20,7 +20,7 @@
             serverSide: true,
             ajax: "{{ route('blog.admin.data') }}",
             'columnDefs': [{
-                    "targets": [0, 2, 3, 5], // your case first column
+                    "targets": [0, 2, 3, 4, 5], // your case first column
                     "className": "text-center"
 
                 },
@@ -49,8 +49,8 @@
                     name: 'deskripsi'
                 },
                 {
-                    data: 'created_at',
-                    name: 'created_at'
+                    data: 'updated_at',
+                    name: 'updated_at'
                 },
                 {
                     data: 'action',
@@ -67,6 +67,7 @@
         $('#addBlog').click(function() {
             $('#frm_blog').trigger("reset");
             $('#modalBlog').modal('show');
+            $('#deskripsi').summernote('reset');
         });
 
         // Store Data
@@ -76,15 +77,15 @@
             e.preventDefault();
             var judul = $("#judul").val();
             var featured_image = $("#foto")[0].files[0];
-            var formData = new FormData( $('#frm_blog')[0] );
-            formData.append("deskripsi", $('#deskripsi').summernote('code') );
+            var formData = new FormData($('#frm_blog')[0]);
+            formData.append("deskripsi", $('#deskripsi').summernote('code'));
             // formData.append('judul', judul);
             // formData.append('featured_image', featured_image);
 
             if (idEdit === 0) {
                 url = "{{ route('blog.admin.store') }}"
                 type = "POST"
-            }else {
+            } else {
                 url = "{{ route('blog.admin.update', ':id') }}";
                 url = url.replace(':id', idEdit);
                 type = "POST"
@@ -128,13 +129,14 @@
                 success: function(res) {
                     idEdit = res.data.id;
                     gambar = res.data.foto;
-                    base_url = 'http://localhost:8000/blog/'+encodeURIComponent(res.data.foto)+''
+                    base_url = 'http://localhost:8000/blog/' + encodeURIComponent(res.data
+                        .foto) + ''
                     idEdit = res.data.id;
                     $('#frm_blog').trigger("reset");
                     $('#modalBlog').modal('show');
                     $('#judul').val(res.data.judul);
                     $('#deskripsi').summernote('code', res.data.deskripsi);
-                    $('#preview-image-before-upload').attr('src',base_url); 
+                    $('#preview-image-before-upload').attr('src', base_url);
                     console.log(idEdit)
 
                 }
@@ -185,5 +187,4 @@
         // End Delete
 
     })
-
 </script>

@@ -49,7 +49,7 @@
 
             <!-- Visible only in normal mode -->
             <div class="sidebar-mini-hidden-b text-center">
-                <a class="img-link" href="be_pages_generic_profile.html">
+                <a class="img-link" href="{{route ('admin.dashboard')}}">
                     <img class="img-avatar" src="{{ asset('assets_l/images/user.jpg') }}" alt="">
                 </a>
                 <ul class="list-inline mt-10">

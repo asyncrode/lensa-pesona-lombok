@@ -7,24 +7,22 @@
 
     <title>Lensa Pesona Lombok &mdash; Agen Tour Wisata</title>
 
-    <meta name="description" content="Kang Sayur Web Admin | Admin Login">
-    <meta name="author" content="pixelcave">
+    <meta name="description" content="Lensa Pesona Lombok | Admin Login">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph Meta -->
-    <meta property="og:title" content="Kang Sayur Web Admin | UI Framework">
+    <meta property="og:title" content="Lensa Pesona Lombok | UI Framework">
     <meta property="og:site_name" content="Codebase">
-    <meta property="og:description" content="Kang Sayur Web Admin | Admin Login">
+    <meta property="og:description" content="Lensa Pesona Lombok | Admin Login">
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="{{ asset('assets/media/favicons/favicon.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('assets/media/favicons/favicon-192x192.png') }}">
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ asset('assets/media/favicons/apple-touch-icon-180x180.png') }}">
+    <link rel="shortcut icon" href="{{ asset('../favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('../favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('../favicons.png') }}">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
@@ -77,6 +75,25 @@
             top: 3px;
             box-shadow: none;
         }
+
+        .ctabtn {
+            background-color: #f26964;
+            box-shadow: #c1524e 4px 4px 0px;
+            width: 100%;
+            font-size: 1.5em;
+            padding: 20px;
+            border: 0;
+            border-radius: 8px;
+            transition: transform 200ms, box-shadow 200ms;
+            outline: none !important;
+            color: #fff;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .ctabtn:active {
+            transform: translateY(4px) translateX(4px);
+            box-shadow: #c1524e 0px 0px 0px;
+        }
     </style>
     <!-- END Stylesheets -->
 </head>
@@ -93,33 +110,36 @@
             <div style="background-color:#63B47A">
                 <!--style="background-color:#63B47A"-->
 
-                <div class="row mx-0 justify-content-center">
-                    <div class="hero-static col-lg-6 col-xl-4">
-                        <div class="content content-full overflow-hidden invisible" data-toggle="appear"
-                            data-class="animated bounceIn" data-timeout="250">
+                    <div class="row mx-0 justify-content-center">
+                        <div class="hero-static col-lg-6 col-xl-4">
+                            <div class="content content-full overflow-hidden invisible" data-toggle="appear"
+                                data-class="animated bounceIn" data-timeout="250">
 
-                            <form class="js-validation-signin" action="{{ route('login') }}" method="post">
-                                @csrf
+                                <form class="js-validation-signin" action="{{ route('login') }}" method="post">
+                                    @csrf
 
-                                <div class="block block-themed block-rounded block-shadow my-20 "
-                                    style="border-radius: 30px; box-shadow:15px 15px 0px rgba(0,0,0,.1);">
+                                    <div class="block block-themed block-rounded block-shadow my-20 "
+                                        style="border-radius: 30px; box-shadow:15px 15px 0px rgba(0,0,0,.1);">
 
-                                    <div class="bg-white"
-                                        style="border-top-left-radius: 30px; border-top-right-radius:30px;">
-                                        <div class="py-30 text-center">
-                                            <a class=" font-w700" href="#">
-                                                <i class="si si-fire"></i>
-                                                <span class="font-size-xl text-pulse-light">lensapesona</span><span
-                                                    class="font-size-xl">lombok</span>
-                                            </a>
-                                            <h1 class="h4 font-w700 mt-30 mb-10">Welcome to
-                                                Admin Dashboard
-                                            </h1>
-                                            <h2 class="h5 font-w400 text-muted mb-0">It’s a great day
-                                                today!
-                                            </h2>
-                                        </div>
-                                        {{-- @if (Session::get('fail'))
+                                        <div class="bg-white"
+                                            style="border-top-left-radius: 30px; border-top-right-radius:30px;">
+                                            <div class="py-30 text-center">
+                                                <a class=" font-w700" href="#">
+                                                    {{-- <i class="si si-briefcase"></i> --}}
+                                                    {{-- <span class="font-size-xl text-pulse-light">lensapesona</span><span
+                                                        class="font-size-xl">lombok</span> --}}
+                                                    <span><img src="{{ asset('assets_l/images/logo.png') }}"
+                                                            style="height: min(15vw, 65px);"
+                                                            alt="Lensa Pesona Lombok"></span>
+                                                </a>
+                                                {{-- <h1 class="h4 font-w500 mt-30 mb-10">Welcome to
+                                                    Admin Dashboard
+                                                </h1> --}}
+                                                <h2 class="h5 font-w400 text-muted mt-30 mb-0">Welcome to
+                                                    Admin Dashboard!
+                                                </h2>
+                                            </div>
+                                            {{-- @if (Session::get('fail'))
                                         <div class="alert alert-danger alert-dismissible">
                                             {{ Session::get('fail') }}
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close"
@@ -128,61 +148,63 @@
                                         @endif
 
                                         @csrf --}}
-                                    </div>
-                                    <div class="block-content text-body-color-dark">
-                                        <div class="form-group row px-3">
-                                            <div class="col-12">
-                                                <div class="form-material floating">
-                                                    <input type="text" class="form-control text-body-color-light"
-                                                        id="email" name="email" value="{{ old('email') }}">
-                                                    <label for="email">Email</label>
-                                                    <span class="text-danger">
-                                                        {{-- @error('email')
+                                        </div>
+                                        <div class="block-content text-body-color-dark">
+                                            <div class="form-group row px-3">
+                                                <div class="col-12">
+                                                    <div class="form-material floating">
+                                                        <input type="text" class="form-control text-body-color-dark"
+                                                            id="email" name="email" value="{{ old('email') }}">
+                                                        <label for="email">Email</label>
+                                                        <span class="text-danger">
+                                                            {{-- @error('email')
                                                         {{ $message }}
                                                         @enderror --}}
-                                                    </span>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group row px-3">
-                                            <div class="col-12">
-                                                <div class="form-material floating">
-                                                    <input type="password" class="form-control text-body-color-light"
-                                                        id="password" name="password" value="{{ old('password') }}">
-                                                    <label for="password">Password</label>
-                                                    <span class="text-danger">
-                                                        {{-- @error('password')
+                                            <div class="form-group row px-3">
+                                                <div class="col-12">
+                                                    <div class="form-material floating">
+                                                        <input type="password" class="form-control text-body-color-dark"
+                                                            id="password" name="password"
+                                                            value="{{ old('password') }}">
+                                                        <label for="password">Password</label>
+                                                        <span class="text-danger">
+                                                            {{-- @error('password')
                                                         {{ $message }}
                                                         @enderror --}}
-                                                    </span>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group row mb-0 px-3">
-                                            <div class="col-sm-12 text-sm-right push mt-30">
-                                                <button type="submit" class="btn3d justify-content-center">
-                                                    {{-- style="border-style: none; border-radius: 20px; padding:10px
+                                            <div class="form-group row mb-0 px-3">
+                                                <div class="col-sm-12 text-sm-right push mt-30">
+                                                    <button type="submit" class="ctabtn justify-content-center">
+                                                        {{-- style="border-style: none; border-radius: 20px; padding:10px
                                                     50px 10px 50px;"> --}}
-                                                    Sign In
-                                                </button>
+                                                        Sign In
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-white block-content"
+                                            style="border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
+                                            <div class="form-group text-center">
+                                                <a class="link-effect mr-10 mb-5 d-inline-block font-size-sm"
+                                                    href="#">
+                                                    <i class="fa fa-user mr-5"></i> Lupa Password?
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-white block-content"
-                                        style="border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
-                                        <div class="form-group text-center">
-                                            <a class="link-effect mr-10 mb-5 d-inline-block font-size-sm" href="#">
-                                                <i class="fa fa-user mr-5"></i> Lupa Password?
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- END Sign In Form -->
+                                </form>
+                                <!-- END Sign In Form -->
+                            </div>
                         </div>
                     </div>
-                </div>
 
             </div>
             <!-- END Page Content -->

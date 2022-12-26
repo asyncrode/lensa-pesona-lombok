@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Area extends Model
 {
-    protected $table = 'area__khususes';
+    protected $table = 'area_khususes';
     protected $fillable = [
         'id', 'area', 'biayaA', 'biayaI', 'biayaH'
     ];

@@ -14,9 +14,9 @@
                     <thead>
                         <tr>
                             <th class="d-none d-sm-table-cell text-center" style="width: 5%;">no</th>
-                            <th class="d-none d-sm-table-cell text-center" style="width: 30%;">lokasi</th>
-                            <th class="d-none d-sm-table-cell text-center" style="width: 10%;">foto</th>
-                            <th class="d-none d-sm-table-cell text-center">Tanggal</th>
+                            <th class="d-none d-sm-table-cell text-center">lokasi</th>
+                            <th class="d-none d-sm-table-cell text-center" style="width: 20%;">foto</th>
+                            <th class="d-none d-sm-table-cell text-center" style="width: 10%;">Tanggal</th>
                             <th class="d-none d-sm-table-cell text-center" style="width: 10%;">action</th>
                         </tr>
                     </thead>

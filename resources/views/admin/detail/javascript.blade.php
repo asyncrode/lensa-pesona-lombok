@@ -8,11 +8,10 @@
             serverSide: true,
             ajax: "{{ route('detail.admin.data') }}",
             'columnDefs': [{
-                    "targets": [0,1, 2, 3, 5], // your case first column
-                    "className": "text-center"
+                "targets": [0, 2, 3, 4, 5], // your case first column
+                "className": "text-center"
 
-                },
-            ],
+            }, ],
             columns: [{
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex'
@@ -34,8 +33,8 @@
                     name: 'hrgTourHotel'
                 },
                 {
-                    data: 'created_at',
-                    name: 'created_at'
+                    data: 'updated_at',
+                    name: 'updated_at'
                 },
                 {
                     data: 'action',
@@ -49,13 +48,13 @@
 
         // Get Wisata
         $.ajax({
-            url:"{{ route('detail.admin.wisata') }}",
-            type:'GET',
-            success:function(data){
+            url: "{{ route('detail.admin.wisata') }}",
+            type: 'GET',
+            success: function(data) {
                 console.log(data)
-                $.each(data,function(key, value)
-                {
-                    $("#wisata").append('<option value=' + value.id + '>' + value.nama + '</option>');
+                $.each(data, function(key, value) {
+                    $("#wisata").append('<option value=' + value.id + '>' + value.nama +
+                        '</option>');
                 });
             }
         })
@@ -106,8 +105,8 @@
             })
         });
         // End Store Data
-        
-        
+
+
         // EDIT DATA
         $('body').on('click', '#edit', function() {
             var id = $(this).attr('data-id');
@@ -127,15 +126,15 @@
                     $('#harga_hotel').val(res.data.hrgTourHotel);
                     $("#wisata").empty()
                     $("div.s_wisata select").val(res.wisata).change();
-                       
+
                     // $("#admin").append('<option value="'+res.data.id+'">Default=='+data.default.name+'</option>');
-                    $.each(res.wisata,function(key, value)
-                    {
-                        $("#wisata").append('<option value=' + value.id + '>' + value.nama + '</option>');
+                    $.each(res.wisata, function(key, value) {
+                        $("#wisata").append('<option value=' + value.id + '>' +
+                            value.nama + '</option>');
                     });
                     console.log(res.wisata)
 
-                    
+
 
                 }
             })

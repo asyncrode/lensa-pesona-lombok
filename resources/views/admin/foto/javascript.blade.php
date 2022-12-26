@@ -2,16 +2,16 @@
     $(document).ready(function() {
         var idEdit = 0;
         $('#foto').change(function(){
-            
+
             let reader = new FileReader();
-         
-            reader.onload = (e) => { 
-         
-              $('#preview-image-before-upload').attr('src', e.target.result); 
+
+            reader.onload = (e) => {
+
+              $('#preview-image-before-upload').attr('src', e.target.result);
             }
-         
-            reader.readAsDataURL(this.files[0]); 
-           
+
+            reader.readAsDataURL(this.files[0]);
+
            });
         // Show Data
         var table = $('.tableFoto').DataTable({
@@ -19,7 +19,7 @@
             serverSide: true,
             ajax: "{{ route('foto.admin.data') }}",
             'columnDefs': [{
-                    "targets": [0, 2, 3], // your case first column
+                    "targets": [0, 2, 3, 4], // your case first column
                     "className": "text-center"
 
                 },
@@ -37,8 +37,8 @@
                     name: 'foto'
                 },
                 {
-                    data: 'created_at',
-                    name: 'created_at'
+                    data: 'updated_at',
+                    name: 'updated_at'
                 },
                 {
                     data: 'action',
@@ -49,7 +49,7 @@
             ]
         });
         // End Show
-      
+
         // Create Modal
         $('#addFoto').click(function() {
             $('#frm_foto').trigger("reset");
@@ -62,7 +62,7 @@
             var type;
             e.preventDefault();
             let formData = new FormData($('#frm_foto')[0])
-           
+
             if (idEdit === 0) {
                 url = "{{ route('foto.admin.store') }}"
                 type = "POST"
@@ -92,7 +92,7 @@
                     idEdit = 0;
                     $('#frm_foto').trigger("reset");
                     $('#modalFoto').modal('hide');
-                    $('#preview-image-before-upload').attr('src',''); 
+                    $('#preview-image-before-upload').attr('src','');
                     table.draw()
                 }
             })
@@ -106,7 +106,7 @@
             var url = '{{ route('foto.admin.edit', ':id') }}'
             url = url.replace(':id', id)
 
-           
+
 
             $.ajax({
                 type: 'GET',
@@ -119,7 +119,7 @@
                     $('#frm_foto').trigger("reset");
                     $('#modalFoto').modal('show');
                     $('#lokasi').val(res.data.lokasi);
-                    $('#preview-image-before-upload').attr('src',base_url); 
+                    $('#preview-image-before-upload').attr('src',base_url);
                     console.log(idEdit)
 
                 }

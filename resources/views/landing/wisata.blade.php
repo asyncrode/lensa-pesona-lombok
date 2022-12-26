@@ -1,6 +1,7 @@
 @include('layouts_landing.head')
 @include('layouts_landing.navbar')
-<section id="fh5co-hero" class="no-js-fullheight" style="background-image: url('{{ asset('assets_l/images/full_image_2.jpg') }}')" data-next="yes">
+<section id="fh5co-hero" class="no-js-fullheight" style="background-image: url('{{ asset('assets_l/images/1.jpg') }}')"
+    data-next="yes">
     <div class="fh5co-overlay"></div>
     <div class="container">
         <div class="fh5co-intro no-js-fullheight">
@@ -13,8 +14,8 @@
       -->
                 <div class="fh5co-center-position">
                     <h2 class="animate-box">Paket Wisata Lombok</h2>
-                    <h3 class="animate-box">Explore berbagai paket tour lombok murah dengan pelayanan terbaik di Lensa
-                        Pesona Lombok</h3>
+                    <h3 class="animate-box">Explore Lombok dengan berbagai paket tour murah
+                        di Lensa Pesona Lombok</h3>
                 </div>
             </div>
         </div>
@@ -32,7 +33,8 @@
     <div class="container">
         <div class="row">
             <div class="fh5co-label animate-box" style="padding: 0px 15px 0px 15px">
-                <p class="fh5co-sub-lead" style="text-align: justify;">Paket Tour Lombok 2022 bersama Lensa Pesona
+                <p class="fh5co-sub-lead" style="text-align: justify; color:#040303">Paket Tour Lombok 2022 bersama
+                    Lensa Pesona
                     Lombok dengan destinasi terlengkap dan pilihan paket wisata yang beragam. Mulai dari Paket liburan
                     Lombok 3 hari 2 malam hingga 5 hari 4 malam.
                     Tersedia juga paket tour lombok tanpa hotel bagi anda yang telah memesan sendiri akomodasi pilihan
@@ -41,31 +43,77 @@
                 <br>
             </div>
         </div>
-        <div class="row">
-                @foreach($wisata as $w)
 
-                <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
-                    <a href="{{ route('d-wisata', $w->id) }}" class="fh5co-project-item" >
-                        <img src="{{ asset('assets_l/images/img_1.jpg') }}" alt="Image" class="img-responsive">
-                        <div class="fh5co-text">
-                            <h2>{{ $w->nama }}</h2>
-                            <p style="padding: 10px 10px ">{{ $w->tujuan }}</p>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <i class="fa fa-tag"></i> <span>{{ $w->harga }}</span>
-                                </div>
-                                <div class="col-sm-6">
-                                    <i class="fa fa-map-marker-alt"></i> <span>Lombok</span>
+        <div class="row">
+            @foreach ($wisata as $w)
+                @if ($loop->iteration == 1)
+                    <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
+                        <a href="{{ route('d-wisata', $w->id) }}" class="fh5co-project-item">
+                            <img src="{{ asset('assets_l/images/tanjungann.jpg') }}" alt="Image"
+                                class="img-responsive">
+                            <div class="fh5co-text">
+                                <h2>{{ $w->nama }}</h2>
+                                <p style="padding: 10px 10px ">{{ $w->tujuan }}</p>
+                                <div class="row">
+                                    <div class="col-lg-6 pull-left">
+                                        <i class="fa fa-tag fa-fw" style="color: #fa5555"></i>
+                                        <span>{{ $w->harga }}</span>
+                                    </div>
+                                    <div class="col-lg-6 pull-right">
+                                        <i class="fa fa-map-marker-alt fa-fw"></i>
+                                        <span>Lombok</span>
+                                    </div>
                                 </div>
                             </div>
+                        </a>
+                    </div>
+                @else
+                    @if ($loop->iteration == 2)
+                        <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
+                            <a href="{{ route('d-wisata', $w->id) }}" class="fh5co-project-item">
+                                <img src="{{ asset('assets_l/images/banana_e.png') }}" alt="Image"
+                                    class="img-responsive">
+                                <div class="fh5co-text">
+                                    <h2>{{ $w->nama }}</h2>
+                                    <p style="padding: 10px 10px ">{{ $w->tujuan }}</p>
+                                    <div class="row">
+                                        <div class="col-lg-6 pull-left">
+                                            <i class="fa fa-tag fa-fw" style="color: #fa5555"></i>
+                                            <span>{{ $w->harga }}</span>
+                                        </div>
+                                        <div class="col-lg-6 pull-right">
+                                            <i class="fa fa-map-marker-alt fa-fw"></i>
+                                            <span>Lombok</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-
-                @endforeach
+                    @else
+                        <div class="col-md-4 col-sm-6 col-xxs-12 animate-box">
+                            <a href="{{ route('d-wisata', $w->id) }}" class="fh5co-project-item">
+                                <img src="{{ asset('assets_l/images/senggigi2.jpg') }}" alt="Image"
+                                    class="img-responsive">
+                                <div class="fh5co-text">
+                                    <h2>{{ $w->nama }}</h2>
+                                    <p style="padding: 10px 10px ">{{ $w->tujuan }}</p>
+                                    <div class="row">
+                                        <div class="col-lg-6 pull-left">
+                                            <i class="fa fa-tag fa-fw" style="color: #fa5555"></i>
+                                            <span>{{ $w->harga }}</span>
+                                        </div>
+                                        <div class="col-lg-6 pull-right">
+                                            <i class="fa fa-map-marker-alt fa-fw"></i>
+                                            <span>Lombok</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
+                @endif
+            @endforeach
         </div>
-
-
 
         <div style="padding-top: 2em">
             <div>

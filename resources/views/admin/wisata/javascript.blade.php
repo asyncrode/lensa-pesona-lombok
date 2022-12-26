@@ -68,14 +68,13 @@
             var url;
             var type;
 
-            if(idEdit === 0)
-            {
+            if (idEdit === 0) {
                 url = "{{ route('wisata.admin.store') }}"
                 type = "POST"
             } else {
 
-                url = '{{ route("wisata.admin.update", ":id") }}';
-                url = url.replace(':id', idEdit );
+                url = '{{ route('wisata.admin.update', ':id') }}';
+                url = url.replace(':id', idEdit);
 
 
                 type = "PUT"
@@ -136,39 +135,39 @@
             var url = '{{ route('wisata.admin.delete', ':id') }}';
             url = url.replace(':id', id);
             Swal.fire({
-                title : 'Anda Yakin ?',
-                text  : 'Data Yang Sudah Dihapus Tidak Akan Bisa Dikembalikan',
-                icon  : 'warning',
-                showConfirmButton : true,
-                showCancelButton :true,
-                confirmButtonText: 'Ya, Hapus!',
-                cancelButtonText: 'Tidak, Batalkan!',
-                allowOutsideClick: false,
-            })
-            .then((result)=>{
-                if(result.value) {
-                    $.ajax({
-                        headers:{
-                            'X-CSRF-TOKEN' : '{{csrf_token()}}'
-                        },
-                        type : 'DELETE',
-                        url:url,
-                        success:function(response){
+                    title: 'Anda Yakin ?',
+                    text: 'Data Yang Sudah Dihapus Tidak Akan Bisa Dikembalikan',
+                    icon: 'warning',
+                    showConfirmButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Hapus!',
+                    cancelButtonText: 'Tidak, Batalkan!',
+                    allowOutsideClick: false,
+                })
+                .then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            type: 'DELETE',
+                            url: url,
+                            success: function(response) {
 
-                            Swal.fire({
-                                title: 'Berhasil!',
-                                icon : 'success',
-                                text : 'Data Berhasil Di Hapus',
-                                showConfirmButton :true
-                            })
+                                Swal.fire({
+                                    title: 'Berhasil!',
+                                    icon: 'success',
+                                    text: 'Data Berhasil Di Hapus',
+                                    showConfirmButton: true
+                                })
 
-                            table.draw()
-                        }
-                    })
-                }else{
-                    Swal.close()
-                }
-            })
+                                table.draw()
+                            }
+                        })
+                    } else {
+                        Swal.close()
+                    }
+                })
         })
         // End Delete
 
